@@ -161,7 +161,7 @@ def pregunta_01():
     X = df.copy()
 
     # Remueva la columna `default` del DataFrame `X`.
-    X.drop('default', axis=1)
+    X = X.drop('default', axis=1)
 
     # Retorne `X` y `y`
     return X, y
@@ -200,7 +200,7 @@ def pregunta_03():
     # Importe SVC
     # Importe OneHotEncoder
     # Importe Pipeline
-    from sklearn.compose import make_column_selector
+    
     from sklearn.compose import make_column_transformer
     from sklearn.svm import SVC
     from sklearn.preprocessing import OneHotEncoder
@@ -222,7 +222,7 @@ def pregunta_03():
     # Cree un pipeline que contenga el columnTransformer y el modelo SVC.
     pipeline = Pipeline(
         steps=[
-            ("columnTransformer", columnTransformer()),
+            ("columnTransformer", columnTransformer),
             ("svc", SVC()),
         ],
     )
